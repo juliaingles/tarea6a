@@ -23,4 +23,3 @@ fi
 
 echo "el total es: $coste"
 
-echo "el precio total es: $precio_total"
