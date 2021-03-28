@@ -7,16 +7,19 @@ while [[ $DIA -lt 0 ||  $DIA -gt 30 ]]; do
 	read -p "Introduce un dia del mes [1 - 30]: " DIA
 done
 
-i=1
+contador=0
 
-while [ $i -lt $DIA ]
+while [ true ]
 do
 
 	for var in lunes martes miercoles jueves viernes sabado domingo
 	do
-		
-		echo $i $var
+		contador=$(($contador+1))
+		if [ $contador = $dia ]
+		then
+            echo "el dia es $var"
+            exit
+        fi
 	done
-	i=$(($i+1))
 
 done

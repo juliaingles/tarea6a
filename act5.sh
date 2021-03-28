@@ -16,4 +16,5 @@ done
 
 echo "La suma total es: $resultado"
 echo "Número de iteraciones: $contador"
-echo "La media es de: $(($resultado / $contador))"
+media =`echo "scale=2; $resultado/$contador" | bc`
+echo "La media es de: $media"

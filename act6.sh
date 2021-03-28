@@ -2,22 +2,25 @@
 
 read -p "Introduce la cantidad de litros de agua gastados: " LITROS
 
-precio_total=0
 
-if [ $LITROS -ge 50 ] 
+ while [ $LITROS -le 0 ]; do
+    read -p "Introduce la cantidad de litros de agua gastados: " LITROS
+done
+
+if [ $LITROS -le 50 ] 
 then
-	precio_total=20
-	
+	coste=20
+else	
 	if [ $LITROS -le 200 ]
 	then
-		precio_total=$(( $precio_total + (($LITROS - 20) * 20) ))		
-		
-		if [ $LITROS -gt 200 ]
-		then
-			precio_total=$(( $precio_total + (($LITROS - 150) * 10) ))
-		fi
-	fi
+            resto=$((litros-50))
+            coste=`echo "scale=2; $resto*0.2+20" | bc`
+    else
+            resto=$((litros-50))
+            coste=`echo "scale=2; $resto*0.1+50" | bc`
+    fi
 fi
 
+echo "el total es: $coste"
 
 echo "el precio total es: $precio_total"
